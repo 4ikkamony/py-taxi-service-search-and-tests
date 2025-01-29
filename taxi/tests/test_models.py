@@ -18,16 +18,28 @@ class DriverModelTest(TestCase):
         self.assertEqual(str(self.driver), "TestDr1v3Rr (name surname)")
 
     def test_get_absolute_url(self):
-        expected_url = reverse("taxi:driver-detail", kwargs={"pk": self.driver.pk})
+        expected_url = reverse(
+            "taxi:driver-detail",
+            kwargs={"pk": self.driver.pk}
+        )
         self.assertEqual(self.driver.get_absolute_url(), expected_url)
 
 
 class ManufacturerModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.manufacturer_a = Manufacturer.objects.create(name="A", country="testA")
-        cls.manufacturer_b = Manufacturer.objects.create(name="B", country="testB")
-        cls.manufacturer_c = Manufacturer.objects.create(name="C", country="testC")
+        cls.manufacturer_a = Manufacturer.objects.create(
+            name="A",
+            country="testA"
+        )
+        cls.manufacturer_b = Manufacturer.objects.create(
+            name="B",
+            country="testB"
+        )
+        cls.manufacturer_c = Manufacturer.objects.create(
+            name="C",
+            country="testC"
+        )
 
     def test_ordering_by_name_asc(self):
         manufacturers = Manufacturer.objects.all()

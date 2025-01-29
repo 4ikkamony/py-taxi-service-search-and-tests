@@ -54,8 +54,8 @@ class DriverCreationFormTests(TestCase):
 class DriverLicenseUpdateFormTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.valid_licence_number = "ASW93452"
-        cls.too_short_licence_number = "ASW9345"
+        cls.valid_license_number = "ASW93452"
+        cls.too_short_license_number = "ASW9345"
         cls.too_long_license_number = "ASW934521"
         cls.too_many_letters = "ASWA3452"
         cls.too_many_numbers = "AS193452"
@@ -66,13 +66,13 @@ class DriverLicenseUpdateFormTests(TestCase):
 
     def test_valid_license_number(self):
         form = DriverLicenseUpdateForm(
-            data={"license_number": self.valid_licence_number}
+            data={"license_number": self.valid_license_number}
         )
         self.assertTrue(form.is_valid())
 
     def test_too_short_licence_number(self):
         form = DriverLicenseUpdateForm(
-            data={"license_number": self.too_short_licence_number}
+            data={"license_number": self.too_short_license_number}
         )
         self.assertFalse(form.is_valid())
 
